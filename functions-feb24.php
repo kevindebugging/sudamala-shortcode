@@ -1,6 +1,6 @@
 <?php
 
-//this is test
+//this is test. and more test 1
 
 function pinar_child_latest_enqueue()
 {
