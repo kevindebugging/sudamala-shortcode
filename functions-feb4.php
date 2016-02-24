@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+//edit 4
 
 function pinar_child_latest_enqueue()
 {
@@ -49,11 +51,11 @@ function sudamala_availability_form($attr)
 				 */
 				'style' => 'style-2',
 				'title' => 'Find A <b>Room</b>'
-			), $attr );  
+			), $attr );
 
 		$select_options ='';
 		for ($i=1; $i < 7; $i++)
-	    { 
+	    {
 	    	$select_options .= '<option value="'. esc_attr( $i ) .'">'. esc_html( $i ) .'</option>';
 	    }
 		switch ($pinar_availability_form_attr['type']) {
@@ -62,9 +64,9 @@ function sudamala_availability_form($attr)
 				$pinar_availability_form_str = '
 					<div class="booking-form-container container">
 						<div id="main-booking-form" class="'.esc_attr($pinar_availability_form_attr['style']).' sudamala-booking">
-							
+
 							<form class="booking-form clearfix" action="'. esc_url( RAVIS_BOOKING_PAGE_URL ) .'" method="post" autocomplete="off">
-							<div class="input-daterange clearfix col-md-6">	
+							<div class="input-daterange clearfix col-md-6">
 						            <div class="booking-fields col-xs-6 col-md-6">
 						                <input placeholder="'.esc_attr__('Choose check in date', 'ravis').'" class="datepicker-fields check-in" type="text" name="start" />
 						                <i class="fa fa-calendar"></i>
@@ -94,7 +96,7 @@ function sudamala_availability_form($attr)
 						</div>
 					</div>';
 				break;
-		}		
+		}
 		return $pinar_availability_form_str;
 	}
 
@@ -134,13 +136,13 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 				'title' => esc_html__('Our Services', 'ravis'),
 
 				'class' => '',
-				
+
 				'id' => '75, 76, 77'
 
 			), $attr );
 
 		$service_id = explode(', ', $pinar_service_slider_attr['id']);
-		
+
 		//echo ' ' . $service_id[1];
 
 		/**
@@ -156,7 +158,7 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 			'post_type'   => 'service',
 
 			'post_status' => 'publish',
-			
+
 			'post__in'    => $service_id,
 
 			'order'       => 'DESC',
@@ -189,7 +191,7 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 
 		 */
 
-		if ( $pinar_service_slider->have_posts() ) 
+		if ( $pinar_service_slider->have_posts() )
 
 		{
 
@@ -201,7 +203,7 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 
 			 */
 
-	                    
+
 
 			$pinar_service_slider_code = '
 
@@ -241,15 +243,15 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 
 				}
 
-			$pinar_service_slider_code .= ' 
+			$pinar_service_slider_code .= '
 
 				</div>
 
 	        </div>';
 
-		} 
+		}
 
-		else 
+		else
 
 		{
 
@@ -272,7 +274,7 @@ add_shortcode('sudamala-service-slider', 'sudamala_service_slider');
 		return balancetags( $pinar_service_slider_code );
 
 	}
-	
+
 		/**----------------------------------------------------------------------------------------------------**/
 		/**----------------------------------------------------------------------------------------------------**/
 
@@ -299,21 +301,21 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 				'title' => esc_html__('Our Services', 'ravis'),
 
 				'class' => '',
-				
+
 				'link' => '',
-				
+
 				'caption' => ''
 
 			), $attr );
 
 		$links = explode(', ', $sudamala_grid['link']);
-		
+
 		$captions = explode(', ', $sudamala_grid['caption']);
 
 		//echo '' . $links[0];
-					
-					
-		$sudamala_gallery_grid_code = '			
+
+
+		$sudamala_gallery_grid_code = '
 			<div class="gallery-container container gallery-grid '. esc_attr( $sudamala_grid['class'] ) .'">
 				<div class="gallery-container">
 					<div class="sort-section">
@@ -324,11 +326,11 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 							</ul>
 						</div>
 					</div>
-		
+
 					<ul class="image-main-box clearfix">';
-					
+
 		for($i=0; $i<count($links); $i++){
-			
+
 			$sudamala_gallery_grid_code .= '
 				<li class="item col-xs-6 col-md-4">
 					<figure>
@@ -340,19 +342,19 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 					</figure>
 				</li>
 			';
-			
+
 		}
-		
+
 		$sudamala_gallery_grid_code .= '
 					</ul>
 				</div>
 			</div>
 		';
-		
+
 		return balancetags( $sudamala_gallery_grid_code );
-		
+
 	}
-	
+
 	add_shortcode('sudamala-main-gallery', 'sudamala_main_gallery');
 
 /**
@@ -421,7 +423,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 
 						<h2>'.ravis_fn_title_effect($pinar_main_gallery_attr['title']).'</h2>
 
-					</div>';					
+					</div>';
 
 				}
 
@@ -473,7 +475,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 
 						</div>
 
-						<ul class="image-main-box clearfix">';						
+						<ul class="image-main-box clearfix">';
 
 
 
@@ -485,7 +487,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 
 						{
 
-							if( $img_i > $pinar_main_gallery_attr['img_count'] ) continue;							
+							if( $img_i > $pinar_main_gallery_attr['img_count'] ) continue;
 
 						}
 
@@ -511,7 +513,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 
 							</li>';
 
-						$img_i ++;	
+						$img_i ++;
 
 					}
 
@@ -523,13 +525,13 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 
 					{
 
-						$pinar_main_gallery_code .='<a href="'.esc_url( RAVIS_GALLERY_PAGE_URL ).'" class="btn btn-default btn-sm">'.esc_html__('More ...', 'ravis').'</a>';						
+						$pinar_main_gallery_code .='<a href="'.esc_url( RAVIS_GALLERY_PAGE_URL ).'" class="btn btn-default btn-sm">'.esc_html__('More ...', 'ravis').'</a>';
 
 					}
 
 
 
-					$pinar_main_gallery_code .='</div>';		
+					$pinar_main_gallery_code .='</div>';
 
 				}
 
@@ -574,10 +576,10 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 		return balancetags( $pinar_main_gallery_code );
 
 	}
-	
+
 		/**----------------------------------------------------------------------------------------------------**/
 		/**----------------------------------------------------------------------------------------------------**/
-	
+
 	add_shortcode('sudamala-art-space-head', 'sudamala_art_space_head');
 
 /**
@@ -593,7 +595,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_art_space_head($attr, $content = null)
 
 	{
-		
+
 		$art_space_head = shortcode_atts(
 
 			array(
@@ -609,15 +611,15 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 				</div>
 			<div class="room-container">
 			' . do_shortcode($content);
-		
-		$art_space_head_code .= '		
+
+		$art_space_head_code .= '
 				</div>
 			</div>';
-		
+
 		return $art_space_head_code;
-	}	
-	
-	
+	}
+
+
 	add_shortcode('sudamala-art-space-body', 'sudamala_art_space_body');
 
 /**
@@ -633,7 +635,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_art_space_body($attr, $content = null)
 
 	{
-		
+
 		$art_space_body = shortcode_atts(
 
 			array(
@@ -657,14 +659,14 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 					<p><a href="'. esc_attr( $art_space_body['link'] ) .'" class="btn btn-default">Read More</a></p>
 				</div>
 			</div>';
-		
-		
+
+
 		return $art_space_body_code;
 	}
-	
+
 		/**----------------------------------------------------------------------------------------------------**/
 		/**----------------------------------------------------------------------------------------------------**/
-	
+
 
 	add_shortcode('sudamala-package-head', 'sudamala_package_head');
 
@@ -681,7 +683,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_package_head($attr, $content = null)
 
 	{
-		
+
 		$sudamala_package_head = shortcode_atts(
 
 			array(
@@ -694,15 +696,15 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			<div id="special-packages-type-2" class="container '. esc_attr( $sudamala_package_head['class'] ) .'">
 				<div class="package-container">
 			' . do_shortcode($content);
-		
-		$sudamala_package_head_code .= '		
+
+		$sudamala_package_head_code .= '
 				</div>
 			</div>';
-		
+
 		return $sudamala_package_head_code;
-	}	
-	
-	
+	}
+
+
 	add_shortcode('sudamala-package-body', 'sudamala_package_body');
 
 /**
@@ -718,7 +720,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_package_body($attr, $content = null)
 
 	{
-		
+
 		$sudamala_package_body = shortcode_atts(
 
 			array(
@@ -739,20 +741,20 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			<div class="img-container col-xs-4 col-md-4">
 				<img src="'. esc_attr( $sudamala_package_body['image'] ) .'" class="package-img wp-post-image">
 			</div>
-			
+
 			<div class="package-details col-xs-8 col-md-8">
 				<div class="title">'. esc_attr( $sudamala_package_body['title'] ) .'</div>
 				<div class="description">'. $content .'
 				</div>
-				
+
 				<div class="button-price clearfix">';
-				
+
 				if($sudamala_package_body['link'] != ''){
 					$sudamala_package_body_code .= '
 					<a href="'. esc_attr( $sudamala_package_body['link'] ) .'" class="btn btn-default">'
 						. esc_attr( $sudamala_package_body['button_text'] ) .'</a>';
 				}
-				
+
 		$sudamala_package_body_code .='
 			<div class="price"><span>' . esc_attr( $sudamala_package_body['price'] ) .'
 				</span>' . esc_attr( $sudamala_package_body['price-detail'] ) .' <br> ' . esc_attr( $sudamala_package_body['spa-detail'] ) .'</div>
@@ -760,14 +762,14 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			</div>
 		</div>
 		';
-		
-		
+
+
 		return $sudamala_package_body_code;
 	}
-	
+
 	/**----------------------------------------------------------------------------------------------------**/
 	/**----------------------------------------------------------------------------------------------------**/
-	
+
 	add_shortcode('sudamala-accordion-head', 'sudamala_accordion_head');
 
 	/**
@@ -783,7 +785,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_accordion_head($attr, $content = null)
 
 	{
-		
+
 		$sudamala_accordion_head = shortcode_atts(
 
 			array(
@@ -795,15 +797,15 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 		$sudamala_accordion_head_code = '
 			<div class="panel-group '. esc_attr( $sudamala_accordion_head['class'] ) .'" id="accordion">
 			' . do_shortcode($content);
-		
-		$sudamala_accordion_head_code .= '		
+
+		$sudamala_accordion_head_code .= '
 				</div><!-- close panel group -->
 			';
-		
+
 		return $sudamala_accordion_head_code;
-		
+
 	}
-	
+
 	add_shortcode('sudamala-accordion-body', 'sudamala_accordion_body');
 
 	/**
@@ -819,7 +821,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 	function sudamala_accordion_body($attr, $content = null)
 
 	{
-		
+
 		$sudamala_accordion_body = shortcode_atts(
 
 			array(
@@ -837,21 +839,21 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 						<a data-toggle="collapse" data-parent="#accordion" href="#'. esc_attr( $sudamala_accordion_body['id'] ) .'">
 						'. esc_attr( $sudamala_accordion_body['title'] ) .'</a>
 					</h3>
-				</div>		
+				</div>
 				<div id="'. esc_attr( $sudamala_accordion_body['id'] ) .'" class="panel-collapse collapse '. esc_attr( $sudamala_accordion_body['class'] ) .'">
 					<div class="panel-body">
-					' . $content .'		
+					' . $content .'
 				</div>
 			</div>
-		</div>';		
+		</div>';
 
 		return $sudamala_accordion_body_code;
-		
+
 	}
-	
+
 		/**----------------------------------------------------------------------------------------------------**/
 		/**----------------------------------------------------------------------------------------------------**/
-		
+
 	add_shortcode('sudamala-welcome-head', 'sudamala_welcome_head');
 
 	/**
@@ -871,10 +873,10 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			<div id="'. esc_attr( $sudamala_welcome_head['id'] ) .'" class="container '. esc_attr( $sudamala_welcome_head['class'] ) .'">
 				' . do_shortcode($content) . '
 			</div><!-- close welcome -->';
-		
+
 		return $sudamala_welcome_head_code;
 	}
-	
+
 	add_shortcode('sudamala-heading-box', 'sudamala_heading_box');
 
 	/**
@@ -895,10 +897,10 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 				<h2>'. esc_attr( $sudamala_heading_box['title'] ) .'</h2>
 				<div class="subtitle">'. esc_attr( $sudamala_heading_box['subtitle'] ) .'</div>
 			</div><!-- close welcome -->';
-		
+
 		return $sudamala_heading_box_code;
-	}	
-		
+	}
+
 	add_shortcode('sudamala-inner-content', 'sudamala_inner_content');
 
 	/**
@@ -919,10 +921,10 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 					' . do_shortcode($content) . '
 				</div>
 			</div>';
-		
+
 		return $sudamala_inner_content_code;
 	}
-	
+
 	add_shortcode('sudamala-image-frame', 'sudamala_image_frame');
 
 	/**
@@ -940,13 +942,13 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			), $attr );
 		$sudamala_image_frame_code = '
 			<div class="img-frame">
-				<img src="'. esc_attr( $sudamala_image_frame['image'] ) .'" 
+				<img src="'. esc_attr( $sudamala_image_frame['image'] ) .'"
 					class="alignnone size-full wp-image-1679'. esc_attr( $sudamala_image_frame['class'] ) .'">
 			</div>';
-		
+
 		return $sudamala_image_frame_code;
 	}
-	
+
 	add_shortcode('sudamala-image-frame-parallax', 'sudamala_image_frame_parallax');
 
 	/**
@@ -963,14 +965,14 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 				'image' => ''
 			), $attr );
 		$sudamala_image_frame_parallax_code = '
-			<div class="img-frame '. esc_attr( $sudamala_image_frame_parallax['class'] ) .'" data-parallax="scroll" 
+			<div class="img-frame '. esc_attr( $sudamala_image_frame_parallax['class'] ) .'" data-parallax="scroll"
 			data-image-src="'. esc_attr( $sudamala_image_frame_parallax['image'] ) .'">
 			</div>';
-		
+
 		return $sudamala_image_frame_parallax_code;
 	}
-	
-	
+
+
 
 	add_shortcode('sudamala-page-slider', 'sudamala_page_slider');
 
@@ -986,20 +988,20 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 			array(
 				'image' => ''
 			), $attr );
-		
+
 		$images = explode(', ', $sudamala_page_slider['image']);
-		
+
 		$pinar_main_slider_code ='';
 
 			$pinar_main_slider_code .='
 				<div id="main-slider">';
-				
-					foreach ($images as $image) {				
+
+					foreach ($images as $image) {
 						$pinar_main_slider_code .='
 							<div class="items">
 					            <img src="'.$image.'" alt="3"/>
 					        </div>';
-					}					
+					}
 
 			$pinar_main_slider_code .='</div>';
 
@@ -1065,8 +1067,8 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 		}
 		else
 		{
-			for ($i=0; $i < count($roomID); $i++) 
-			{ 
+			for ($i=0; $i < count($roomID); $i++)
+			{
 				if($currentID == $roomID[$i])
 				{
 					$roomID_nav[0] = $roomID[$i - 1];
@@ -1115,13 +1117,13 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 							<div class="img-container">';
 							if($room_cover != '')
 		                    {
-		                    	$other_rooms .= wp_get_attachment_image( $room_cover, $thumb_size ); 
+		                    	$other_rooms .= wp_get_attachment_image( $room_cover, $thumb_size );
 		                    }
 		                    else
 		                    {
 		                    	$other_rooms .= '<img src="'. esc_url ( PINAR_IMG_PATH ).'room-placeholder.jpg" alt="'. esc_attr( esc_html__('No Image','ravis') ).'" />';
 		                    }
-							
+
 							$other_rooms .= '<a href="'.esc_url(get_permalink()).'" class="btn btn-default btn-out-border">'.esc_html__('More Details', 'ravis').'</a>
 							</div>
 							<div class="details">
@@ -1136,7 +1138,7 @@ add_shortcode('sudamala-grid-gallery', 'sudamala_grid_gallery');
 				}
 
 			$other_rooms .= '</div> ';
-		
+
 		return balancetags( $other_rooms );
 	}
 
